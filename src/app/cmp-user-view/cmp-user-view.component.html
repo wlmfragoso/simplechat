@@ -1,1 +1,110 @@
-<p>cmp-user-view works!</p>
+<table>
+    <tbody>
+        <!--  
+        <tr>
+            <td style="text-align: left;">
+                <button 
+                    id="chatBtnBackHome"
+                    type ="button"
+                    style="width:200px; height:35px; font-size:10pt">Main</button>
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="text-align: center;">
+                <br/>
+                <br/>
+                <img 
+                    id    ="usrImg" 
+                    src   ="https://www.nicepng.com/png/full/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png" 
+                    height="200px"
+                    width ="200px"
+                />
+            </td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+        </tr>
+        <tr>
+            <td>
+                <input id="usrUserName" type="text" class="txtUserRegistration">
+            </td>
+        </tr>
+        <tr>
+            <td>Informaci&oacute;n</td>
+        </tr>
+        <tr>
+            <td>
+                <textarea id="usrUserInfo" class="txtUserRegistration"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Tel&eacute;fono</td>
+        </tr>
+        <tr>
+            <td>
+                <input id="usrUserPhone" type="text" class="txtUserRegistration">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br/>
+                <br/>
+                <button 
+                    id="chatBtnSave"
+                    type ="button"
+                    style="width:200px; height:35px; font-size:10pt">Registrar</button>
+            </td>
+        </tr>
+    </tbody>
+-->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <!--<form #userForm="ngForm" >-->
+                    <form>
+                        <!--<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">-->
+                        <input type="hidden" name="_id">
+                        <div class="row">
+                            <div style="text-align: center;">
+                                <img 
+                                    id    ="usrImg" 
+                                    src   ="https://www.nicepng.com/png/full/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png" 
+                                    height="200px"
+                                    width ="200px"
+                                />
+                            </div>
+                            <div class="input-field col-s12">
+                                Nombre de usuario
+                                <br/>
+                                <!-- <input name="userName" type="text" #name="ngModel" [(ngModel)]="userService.selectedUser.userName" placeholder="Coloque nombre de usuario"> -->
+                                <input name="userName" type="text" placeholder="Coloque nombre de usuario">
+                            </div>
+                            <div class="input-field col-s12">
+                                Informaci&oacute;n
+                                <br/>
+                                <!-- <input name="info" type="text" #name="ngModel" [(ngModel)]="userService.selectedUser.info" placeholder="Coloque informacion del usuario"> -->
+                                <input name="info" type="text" placeholder="Coloque informacion del usuario">
+                            </div>
+                            <div class="input-field col-s12">
+                                Tel&eacute;fono
+                                <br/>
+                                <!-- <input name="phone" type="text" #name="ngModel" [(ngModel)]="userService.selectedUser.phone" placeholder="Coloque nombre de usuario"> -->
+                                <input name="phone" type="text" placeholder="Coloque telefono de usuario">
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col-s12">
+                                    <button class="btn right">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
