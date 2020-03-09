@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { UserService } from '../services/user.service';
 import { NgForm } from '@angular/forms';
 import { User } from '../models/user';
@@ -12,6 +11,15 @@ declare var M: any;
   styleUrls: ['./cmp-user-view.component.sass'],
   providers: [ UserService ]
 })
+export class CmpUserViewComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+/* +++ Comento hasta la implementacion del formulario
 export class CmpUserViewComponent implements OnInit {
 
   constructor(public userService: UserService) { }
@@ -28,3 +36,4 @@ export class CmpUserViewComponent implements OnInit {
       });
   }
 }
+*/

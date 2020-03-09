@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { User } from '../models/user';
 
 @Injectable({
@@ -22,13 +21,10 @@ export class UserService {
   }
 
   getUsers() {
+    console.log('entre al middleware');
     return this.http.get(this.URL_API);
   }
-/*
-  getUsers(user: User) {
-    return this.http.get(this.URL_API + `/${user._id}`, user);
-  }
-*/
+
   putUser(user: User) {
     return this.http.put(this.URL_API + `/${user._id}`, user);
   }

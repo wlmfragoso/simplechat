@@ -4,7 +4,7 @@ export class User {
 
     constructor(_id = '',
                 id = 0,
-                userName = ( 'DefaultUser' + Date.toString ),
+                userName = ( 'DefaultUser' + Date.now() ),
                 info = 'Usuario default',
                 phone = 'No registrado',
                 lastHeartBit = Date.now()) {
