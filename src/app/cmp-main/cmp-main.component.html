@@ -18,17 +18,21 @@
                 <th>Usuarios En Linea</th>
             </thead>
             <tbody>
-                <!--<tr *ngFor="let user of userService.users">
-                    <td>
-                        <img 
-                            id    ="olUserImg" 
-                            src   ="https://www.nicepng.com/png/full/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png" 
-                            height="30px"
-                            width ="30px"
-                        />
-                    </td>
-                    <td>{{ user.userName }}</td>
-                </tr>-->
+                <ng-container *ngFor="let user of userService.users; let indice = index">
+                    <tr>
+                        <td>
+                            <img 
+                                id    ="olUserImg" 
+                                src   ="https://www.nicepng.com/png/full/202-2022264_usuario-annimo-usuario-annimo-user-icon-png-transparent.png" 
+                                height="30px"
+                                width ="30px"
+                            />
+                        </td>
+                        <td>
+                            <a routerLink="/chat/{{user._id}}">{{ user.userName }}</a>
+                        </td>
+                    </tr>
+                </ng-container>
             </tbody>
         </table>
       

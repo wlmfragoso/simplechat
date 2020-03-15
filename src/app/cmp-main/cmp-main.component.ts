@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user.service';
-import { User } from '../models/user';
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,31 +10,19 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class CmpMainComponent implements OnInit {
+  contactos: any;
 
-  constructor() { }
-  private userService: UserService;
+  constructor(private userService: UserService) {
+    // console.log('Constructor de mainComponent');
+    // this.contactos = this.userService.getUser();
+    // console.log('Contactos: ' + this.contactos);
+  }
+
   ngOnInit(): void {
+    this.contactos = this.userService.getUser();
+    setTimeout(() => {
+      this.ngOnInit();
+     }, 10000);
   }
+
 }
-/* +++ Comento hasta la implementacion de la llamada para enviar los usuarios a la vista
-export class CmpMainComponent implements OnInit {
-
-  // constructor() { }
-  constructor(private http: HttpClient ) { }
-  private userService: UserService;
-  public URL_API = 'http://localhost:3000/';
-  public users = [];
-
-  ngOnInit() {
-    console.log('entre al init');
-    this.getUsersLocal();
-  }
-
-  public getUsersLocal() {
-    console.log('entre a users local');
-    this.userService.getUsers()
-      .subscribe(res => {
-        this.userService.users = res as User[];
-      });
-  }
-}*/

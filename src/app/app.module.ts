@@ -1,6 +1,7 @@
+import { UserService } from './services/user.service';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,8 +18,10 @@ import { CmpOnlineUserComponent } from './cmp-online-user/cmp-online-user.compon
 const appRoutes: Routes = [
   {path: '', component: CmpMainComponent},
   {path: 'home', component: CmpMainComponent},
-  {path: 'user', component: CmpUserViewComponent}
+  {path: 'user', component: CmpUserViewComponent},
+  {path: 'chat/:id', component: CmpChatViewComponent}
 ] ;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +35,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService],
   bootstrap: [AppComponent]
 })
 

@@ -22,4 +22,5 @@ export class User {
     info: string;
     phone: string;
     lastHeartBit: number;
+    observable: any;
 }
