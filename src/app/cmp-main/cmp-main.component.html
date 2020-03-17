@@ -15,9 +15,10 @@
         <table class="striped highlight black-text">
             <thead>
                 <th>&nbsp;</th>
-                <th>Usuarios En Linea</th>
+                <th>Usuarios En Linea &nbsp;&nbsp;&nbsp; <input type="text" placeholder="Filtrar Contactos" [(ngModel)]="consultaContactos"></th>
             </thead>
             <tbody>
+                <!--<ng-container *ngFor="let user of userService.users | search: consultaContactos; let indice = index">-->
                 <ng-container *ngFor="let user of userService.users; let indice = index">
                     <tr>
                         <td>

@@ -10,6 +10,7 @@ export class UserService {
   public URL_API = 'http://localhost:3000/';
   public users: User[];
   public selectedUser: User;
+  public lastQueriedUser: User;
 
   constructor(private http: HttpClient) {
     // this.selectedUser = new User();
@@ -44,6 +45,32 @@ export class UserService {
     return promise;
   }
 
+  public getSingleUser(_id: string): User {
+    // console.log('entre al metodo getSingleUser');
+    const promise = new Promise((resolve, reject) => {
+      this.http.get(this.URL_API + _id)
+      .toPromise()
+      .then((res: any) => {
+        // console.log(res);
+        this.lastQueriedUser = new User(
+            res._id,
+            res.id,
+            res.userName,
+            res.info,
+            res.phone,
+            res.lastHeartBit
+          );
+        // console.log(this.lastQueriedUser);
+        resolve();
+      },
+      err => {
+        // Error
+        reject(err);
+      });
+    });
+    // console.log('getUser fin:' + this.users);
+    return promise;
+  }
 
   public postUser(user: User) {
     return this.http.post(this.URL_API, user);

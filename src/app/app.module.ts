@@ -14,11 +14,13 @@ import { CmpUserViewComponent } from './cmp-user-view/cmp-user-view.component';
 import { CmpIncomingMsgComponent } from './cmp-incoming-msg/cmp-incoming-msg.component';
 import { CmpOutGoingMsgComponent } from './cmp-out-going-msg/cmp-out-going-msg.component';
 import { CmpOnlineUserComponent } from './cmp-online-user/cmp-online-user.component';
+import { ContactSearch } from '../pipes/contactSearch';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {path: '', component: CmpMainComponent},
   {path: 'home', component: CmpMainComponent},
-  {path: 'user', component: CmpUserViewComponent},
+  {path: 'user/:id', component: CmpUserViewComponent},
   {path: 'chat/:id', component: CmpChatViewComponent}
 ] ;
 
@@ -30,13 +32,15 @@ const appRoutes: Routes = [
     CmpUserViewComponent,
     CmpIncomingMsgComponent,
     CmpOutGoingMsgComponent,
-    CmpOnlineUserComponent
+    CmpOnlineUserComponent,
+    ContactSearch
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     UserService],

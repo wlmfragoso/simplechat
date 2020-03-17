@@ -11,7 +11,7 @@ import { UserService } from '../services/user.service';
 
 export class CmpMainComponent implements OnInit {
   contactos: any;
-
+  consultaContactos = '';
   constructor(private userService: UserService) {
     // console.log('Constructor de mainComponent');
     // this.contactos = this.userService.getUser();
@@ -20,9 +20,7 @@ export class CmpMainComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactos = this.userService.getUser();
-    setTimeout(() => {
-      this.ngOnInit();
-     }, 10000);
+    // setTimeout(() => {this.ngOnInit();}, 10000);
   }
 
 }
