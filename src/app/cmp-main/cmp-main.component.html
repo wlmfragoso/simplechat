@@ -30,7 +30,12 @@
                             />
                         </td>
                         <td>
-                            <a routerLink="/chat/{{user._id}}">{{ user.userName }}</a>
+                            <ng-container *ngIf="user._id != userService.selectedUser._id">
+                                <a routerLink="/chat/{{user._id}}">{{ user.userName }}</a>
+                            </ng-container>
+                            <ng-container *ngIf="user._id == userService.selectedUser._id">
+                                <a routerLink="/user/{{user._id}}">Me - {{ user.userName }}</a>
+                            </ng-container>
                         </td>
                     </tr>
                 </ng-container>

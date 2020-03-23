@@ -17,6 +17,7 @@ app.use(express.json());
 
 // rutas
 app.use('/', require('../routes/user.routes'));
+// app.use('/session', require('../routes/session.routes'));
 
 // al iniciar el servidor
 app.listen(app.get('port'),() => {

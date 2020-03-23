@@ -8,5 +8,7 @@ router.post('/', user.createUser);
 router.get('/:id', user.getUser);
 router.put('/:id', user.editUser);
 router.delete('/:id', user.deleteUser);
+//router.get('/session', user.getUsers);
+
 
 module.exports = router;

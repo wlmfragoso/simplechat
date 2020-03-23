@@ -1,9 +1,14 @@
 import { formatDate } from '@angular/common';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root'
+  })
 
 export class User {
 
     constructor(_id = '',
-                id = 0,
+                id = '',
                 userName = ( 'DefaultUser' + Date.now() ),
                 info = 'Usuario default',
                 phone = 'No registrado',
@@ -17,7 +22,7 @@ export class User {
     }
 
     _id: string;
-    id: number;
+    id: string;
     userName: string;
     info: string;
     phone: string;

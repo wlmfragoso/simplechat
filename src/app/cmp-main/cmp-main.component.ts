@@ -1,6 +1,6 @@
+import { User } from './../models/user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-
 
 @Component({
   selector: 'app-cmp-main',
@@ -10,17 +10,19 @@ import { UserService } from '../services/user.service';
 })
 
 export class CmpMainComponent implements OnInit {
+  public usuario: User = new User();
   contactos: any;
   consultaContactos = '';
-  constructor(private userService: UserService) {
+  constructor(public userService: UserService) {
     // console.log('Constructor de mainComponent');
     // this.contactos = this.userService.getUser();
     // console.log('Contactos: ' + this.contactos);
   }
 
   ngOnInit(): void {
-    this.contactos = this.userService.getUser();
+    this.userService.postUser(this.usuario);
+    // this.userService.putUser(this.usuario);
+    // this.userService.getUser();
     // setTimeout(() => {this.ngOnInit();}, 10000);
   }
-
 }

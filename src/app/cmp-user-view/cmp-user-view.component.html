@@ -3,7 +3,7 @@
         <div class="col s5">
             <div class="card">
                 <div class="card-content">
-                    <form #userForm="ngForm" >
+                    <form #userForm="ngForm" (ngSubmit)="actualizarUsuario(userForm)">
                         <!--<input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.lastQueriedUser.id">-->
                         <div class="row">
                             <div style="text-align: center;">
@@ -27,7 +27,7 @@
                             <div class="input-field col-s12">
                                 Tel&eacute;fono
                                 <br/>
-                                <input name="phone" type="text" #name="ngModel" [(ngModel)]="userService.lastQueriedUser.phone" placeholder="Coloque nombre de usuario"> 
+                                <input name="phone" type="text" #name="ngModel" [(ngModel)]="userService.lastQueriedUser.phone" placeholder="Coloque telefono"> 
                             </div>
                             <div class="card-action">
                                 <div class="input-field col-s12">

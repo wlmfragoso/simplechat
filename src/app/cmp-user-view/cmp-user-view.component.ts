@@ -16,13 +16,13 @@ export class CmpUserViewComponent implements OnInit {
   public myUser: User;
   idContacto: any;
   constructor(
-    private userService: UserService,
+    public userService: UserService,
     private activatedRoute: ActivatedRoute) {
       this.idContacto = this.activatedRoute.snapshot.params.id;
      }
 
   ngOnInit(): void {
-    this.myUser = this.userService.getSingleUser(this.idContacto);
+    this.userService.getSingleUser(this.idContacto);
     /*console.log(respuestaConsultaUsuarios);
     if (respuestaConsultaUsuarios.length <= 0) {
       console.error('La consulta de usuarios no ha encontrado el identificador seleccionado');
@@ -32,22 +32,21 @@ export class CmpUserViewComponent implements OnInit {
     }*/
   }
 
-}
-/* +++ Comento hasta la implementacion del formulario
-export class CmpUserViewComponent implements OnInit {
-
-  constructor(public userService: UserService) { }
-
-  ngOnInit() {
-    this.getUser();
+  public actualizarUsuario(form?: NgForm) {
+    // console.log(form.value);
+    // asigna el usuario seleccionado
+    this.myUser = this.userService.selectedUser;
+    // modifica los valores con los actuales del formulario y el ultimo heartbit
+    this.myUser.id = this.userService.selectedUser._id;
+    this.myUser.userName = form.value.userName;
+    this.myUser.info = form.value.info;
+    this.myUser.phone = form.value.phone;
+    this.myUser.lastHeartBit = Date.now();
+    // ejecuta la actualizacion
+    this.userService.putUser(this.myUser);
+    // reconsulta el usuario
+    // this.userService.getSingleUser(this.idContacto);
+    // this.userService.selectedUser = this.myUser;
   }
 
-
-  getUser() {
-    this.userService.getUsers()
-      .subscribe(res => {
-        this.userService.users = res as User[];
-      });
-  }
 }
-*/
